@@ -15,8 +15,8 @@ export default function Contact({ onScrollToTop }: ContactProps) {
             Ready for the <em>next challenge.</em>
           </h2>
           <p className="contact__sub">
-            I'm looking for a full-time 600h internship starting August 3rd, 2026. If you think I'd
-            be a good fit — let's talk.
+            I'm looking for a full-time curricular internship (600h) starting August 3rd, 2026. If
+            you're looking for an intern, let's talk!
           </p>
           <div className="contact__links">
             <a href="#top" className="contact__link" onClick={onScrollToTop}>

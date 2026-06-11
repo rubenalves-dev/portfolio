@@ -4,20 +4,20 @@ import EducationCard from "./EducationCard";
 export default function EducationSection() {
   const educationList = [
     {
-      degree: "BSc in Computer Science & Software Engineering",
-      school: "University of Minho (Universidade do Minho)",
-      location: "Braga, Portugal",
-      period: "2023 — 2026 (Graduating July)",
+      degree: "Bachelor in IT Engineering",
+      school: "Instituto Politécnico de Santarém",
+      location: "Santarém, Portugal",
+      period: "Sep 2024 — Present",
       description:
-        "Focused on core computing fundamentals including Distributed Systems, Advanced Algorithms, Relational Databases, Software Architecture, and Concurrent Programming. Active member of student tech clubs.",
+        "Developing core skills in software engineering, database design, network architectures, and advanced systems design to engineer reliable technology solutions.",
     },
     {
-      degree: "Technical Course in Software Development",
-      school: "Braga Professional School (Escola Profissional de Braga)",
-      location: "Braga, Portugal",
-      period: "2020 — 2023",
+      degree: "Higher Professional Technical Diploma in Web & Mobile Technologies",
+      school: "Instituto Politécnico de Santarém",
+      location: "Santarém, Portugal",
+      period: "Sep 2021 — Jul 2023",
       description:
-        "Comprehensive introduction to software development. Built foundational skills in OOP (C#), web technologies (JS/HTML/CSS), databases (SQL Server), and systems administration. Graduated with honors.",
+        "Acquired foundational knowledge in responsive web design, mobile app development, client-side scripting, and relational database integrations.",
     },
   ];
 

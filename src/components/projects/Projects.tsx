@@ -12,6 +12,7 @@ export type ProjectData = {
   architecture: string;
   challenges: string;
   repo?: string;
+  website?: string;
   codeSnippet: {
     language: string;
     code: string;
@@ -25,49 +26,17 @@ type ProjectsProps = {
 export default function Projects({ onSelectProject }: ProjectsProps) {
   const projects: ProjectData[] = [
     {
-      id: "healthcare",
-      num: "01 — Healthcare",
-      name: "Modular Desktop Healthcare App",
-      desc: "Full-stack desktop application designed for clinical workflows in healthcare systems, enabling medical professionals to manage electronic health records, organize scheduling, and capture sensor metrics.",
-      category: "Desktop & API Integration",
-      period: "Oct 2023 — Present",
-      tags: ["C#", "MAUI", "ASP.NET", "Angular"],
+      id: "smartlock",
+      num: "01 — Security & IoT",
+      name: "Smartlock Distributed System",
+      desc: "A high-scale, event-driven IoT security ecosystem designed to integrate real-time edge authentication with AI-driven threat classification.",
+      category: "Distributed Systems & IoT",
+      period: "Apr 2026 — Jun 2026",
+      tags: ["Go", "gRPC", "RabbitMQ", "Python (AI)", "C++ (ESP32)", "MQTT"],
       architecture:
-        "Built on clean architecture principles separating the Core domain, Application use-cases, Infrastructure adapters, and Presentation. The client desktop application uses a custom dynamic assembly injector. This allows hospital IT systems to hot-swap compiled modules (DLLs) dynamically to load custom clinic-specific extensions and device configurations without requiring full client redeployment.",
+        "Leverages an event-driven pub-sub architecture. Hardware validation nodes run on ESP32 microcontrollers communicating telemetry data over MQTT. Go-based ingestion microservices consume these streams, buffer events in Redis, and dispatch tasks to high-performance AI inference workers over multiplexed gRPC connections. Alerts and anomaly reports are routed instantly to the administrative control plane.",
       challenges:
-        "Dynamic DLL loading required strict security sandboxing and reflection validation to verify assembly integrity. We solved this by using cryptography hashing signatures for each DLL before loading, and caching reflection descriptors to prevent overhead on startup.",
-      repo: "https://github.com/raiiaa/healthcare-modular-app",
-      codeSnippet: {
-        language: "csharp",
-        code: `// Dynamic assembly injection using System.Reflection
-public void LoadExtensionModule(string dllPath)
-{
-    var assembly = Assembly.LoadFrom(dllPath);
-    var extensionTypes = assembly.GetTypes()
-        .Where(t => typeof(IHealthcareExtension).IsAssignableFrom(t) && !t.IsInterface);
-
-    foreach (var type in extensionTypes)
-    {
-        var extension = (IHealthcareExtension)Activator.CreateInstance(type);
-        extension.Initialize(this.ServiceProvider);
-        this.ExtensionRegistry.Register(extension);
-    }
-}`,
-      },
-    },
-    {
-      id: "iot",
-      num: "02 — Distributed Systems",
-      name: "AI-Driven IoT Security System",
-      desc: "A distributed IoT security platform built to stream and monitor real-time security events across network-edge sensors, using machine learning pipelines to flag anomalous device behaviors.",
-      category: "Microservices & Message Brokering",
-      period: "Jan 2024 — Jul 2024",
-      tags: ["Go", "gRPC", "RabbitMQ", "Microservices"],
-      architecture:
-        "An event-driven pub-sub microservices layout. Distributed IoT edge devices publish stream payloads to a RabbitMQ message broker. Go-based ingest microservices consume events, buffer them in Redis, and pipe tasks to high-performance AI inference workers over multiplexed gRPC connections. Alerts are immediately broadcasted to an admin control plane.",
-      challenges:
-        "Preventing bottlenecks on massive telemetry bursts. We implemented a custom sliding-window rate-limiter in Go, combined with batch-packaging RabbitMQ consumers to send optimized batches to PyTorch inference servers, maintaining latencies below 12ms under peak stress.",
-      repo: "https://github.com/raiiaa/iot-security-pubsub",
+        "Preventing ingestion bottlenecks during high-frequency telemetry bursts from multiple hardware sensors. This was resolved by implementing a dynamic, sliding-window rate-limiter in Go and batch-packaging RabbitMQ queue consumers to optimize resource utilization at the PyTorch inference servers, keeping end-to-end processing latency under 12ms.",
       codeSnippet: {
         language: "go",
         code: `// Go worker pool consuming from RabbitMQ channel
@@ -92,39 +61,91 @@ func (c *Consumer) Start(ctx context.Context, workers int) {
       },
     },
     {
-      id: "ecommerce",
-      num: "03 — E-Commerce",
-      name: "Custom CMS & E-Commerce Platform",
-      desc: "An end-to-end e-commerce solution integrating a dynamic CMS to let retailers define highly flexible product models and scale online inventory operations.",
-      category: "Web Platforms",
-      period: "Aug 2022 — Aug 2023",
-      tags: ["C#", "ASP.NET", "TypeScript", "SQL"],
+      id: "fightclub",
+      num: "02 — Back-office",
+      name: "SalvaterraFightClub Platform",
+      desc: "A sports management back-office portal designed to automate club administration, membership tracking, billing cycles, and internal registration workflows.",
+      category: "Enterprise Back-office",
+      period: "Jan 2026 — Present",
+      tags: ["C#", "ASP.NET", "jQuery", "Bootstrap", "SQL Server"],
       architecture:
-        "Domain-Driven Design (DDD) with a modular monolithic framework. Designed a dynamic schema EAV (Entity-Attribute-Value) mapper, enabling shop managers to add custom product variables dynamically. SQL schemas feature custom indexing maps for rapid filtering queries. Integrates Stripe webhook handlers for secure transactions.",
+        "Developed using ASP.NET Core MVC with SQL Server handling complex relational storage. The backend incorporates automated workflows and cron-based background jobs to run daily membership status checks, calculate seasonal fee updates, and trigger billing updates automatically. An integrated billing worker handles bulk operations and schedules document rendering in the background.",
       challenges:
-        "Traditional EAV schemas are slow to query. We resolved this by building a background job database sync that periodically indexes customized EAV models into a flattened search table, achieving search query response times of under 8ms.",
-      repo: "https://github.com/raiiaa/custom-commerce-platform",
+        "Managing bulk database state transitions for billing statuses and membership renewals without causing transaction deadlocks or blocking concurrent user operations. Resolved by using database-level batch updates scheduled during off-peak hours and utilizing transactional unit-of-work patterns in C# to ensure full rollback capabilities on error.",
       codeSnippet: {
         language: "csharp",
-        code: `// C# Query mapping dynamic EAV attributes to flat product models
-public async Task<List<ProductDto>> GetFilteredProductsAsync(FilterRequest filter)
+        code: `// Background billing worker executing membership status updates
+public class BillingScheduler : BackgroundService
 {
-    var query = _dbContext.Products.AsNoTracking();
-    
-    if (filter.CustomAttributes.Any())
+    private readonly IServiceProvider _serviceProvider;
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        foreach (var attr in filter.CustomAttributes)
+        while (!stoppingToken.IsCancellationRequested)
         {
-            query = query.Where(p => p.Attributes.Any(a => 
-                a.Key == attr.Key && a.Value == attr.Value));
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var billingService = scope.ServiceProvider.GetRequiredService<IBillingService>();
+                await billingService.ProcessPendingBillingAsync();
+            }
+            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
         }
     }
-    
-    return await query.Select(p => new ProductDto {
-        Id = p.Id,
-        Name = p.Name,
-        Price = p.Price
-    }).ToListAsync();
+}`,
+      },
+    },
+    {
+      id: "crvbi",
+      num: "03 — E-Commerce",
+      name: "CRVBI - Vinhos da Beira Interior",
+      desc: "An institutional e-commerce platform featuring an administrative partner module, inventory control systems, and live social media integrations.",
+      category: "Web Systems & E-Commerce",
+      period: "Oct 2025 — Present",
+      tags: ["C#", "ASP.NET", "Meta API", "SQL Server"],
+      architecture:
+        "Designed using C# and ASP.NET Core. Integrates the Meta Graph API to dynamically poll and display social content feeds locally while minimizing API rate-limit exposure. Implements a dual-purpose storefront for physical and digital inventories, utilizing secure API webhooks to synchronize real-time product quantities with an external ERP platform.",
+      challenges:
+        "Minimizing page loading latencies while maintaining real-time Meta feed updates and ERP inventory sync. Solved by implementing a background polling worker that fetches and caches social feeds, and using Redis to cache product inventory states while processing ERP updates asynchronously via secure webhook endpoints.",
+      website: "https://vinhosdabeirainterior.pt",
+      codeSnippet: {
+        language: "csharp",
+        code: `// Meta Graph API feed consumer and caching service
+public async Task<List<SocialFeedItem>> GetCachedFeedAsync()
+{
+    return await _cache.GetOrCreateAsync("meta_feed", async entry => {
+        entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
+        return await FetchMetaFeedFromApiAsync();
+    });
+}`,
+      },
+    },
+    {
+      id: "jf-alcoentre",
+      num: "04 — Public Sector",
+      name: "JF Alcoentre & CSPM Portals",
+      desc: "A suite of web applications designed to digitize public sector administrative tasks and local community service management.",
+      category: "Web Portals & Security",
+      period: "Jul 2025 — Oct 2025",
+      tags: ["C#", "ASP.NET", "jQuery", "Bootstrap"],
+      architecture:
+        "Built using C# and ASP.NET Core with an Attribute-Based Access Control (ABAC) security model. Designed custom Content Management Systems (CMS) and structured Document Management Systems (DMS) tailored to municipal requirements, categorizing and storing regulatory files and official communications chronologically.",
+      challenges:
+        "Ensuring high security and strict separation of administrative actions in a multi-tenant public sector platform. Achieved this by designing an Attribute-Based Access Control system that evaluates user attributes, role constraints, and context dynamically before permitting document modifications or administrative access.",
+      codeSnippet: {
+        language: "csharp",
+        code: `// Attribute-Based Access Control handler
+protected override Task HandleRequirementAsync(
+    AuthorizationHandlerContext context,
+    DocumentAccessRequirement requirement)
+{
+    var userRole = context.User.FindFirst(ClaimTypes.Role)?.Value;
+    var region = context.User.FindFirst("Region")?.Value;
+
+    if (userRole == "Admin" || (userRole == "Manager" && requirement.Region == region))
+    {
+        context.Succeed(requirement);
+    }
+    return Task.CompletedTask;
 }`,
       },
     },
@@ -151,7 +172,7 @@ public async Task<List<ProductDto>> GetFilteredProductsAsync(FilterRequest filte
         </div>
         <div className="projects__footer">
           <a
-            href="https://github.com/raiiaa"
+            href="https://github.com/rubenalves-dev"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost projects__footer-link"

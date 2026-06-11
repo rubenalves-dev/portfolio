@@ -86,7 +86,7 @@ export default function Footer({ onOpenRecruiterPortal }: FooterProps) {
           <ul className="footer__links">
             <li>
               <a
-                href="https://github.com/raiiaa"
+                href="https://github.com/rubenalves-dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer__link"
@@ -96,7 +96,7 @@ export default function Footer({ onOpenRecruiterPortal }: FooterProps) {
             </li>
             <li>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/raiiaa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer__link"
@@ -105,7 +105,7 @@ export default function Footer({ onOpenRecruiterPortal }: FooterProps) {
               </a>
             </li>
             <li>
-              <a href="mailto:ruben@raiiaa.dev" className="footer__link">
+              <a href="mailto:hello@raiiaa.dev" className="footer__link">
                 Email ↗
               </a>
             </li>

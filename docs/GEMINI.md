@@ -2,6 +2,14 @@
 
 This document records the structural and architectural modifications applied to this codebase.
 
+## 2026-06-11 - Portfolio Content Sync with CV
+
+### Structural Changes
+
+- Updated [Projects.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/projects/Projects.tsx) and [ProjectModal.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/projects/ProjectModal.tsx) to support an optional `website` link parameter on the `ProjectData` type interface.
+- Integrated the `.project-modal__actions` CSS styling block in [index.css](file:///Users/rubenalves/Documents/repos/portfolio/src/index.css) to group the action buttons (e.g. GitHub and live URL links) in the modal footer using BEM spacing without inline styles.
+- Updated the content of [EducationSection.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/career/EducationSection.tsx), [ExperienceSection.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/career/ExperienceSection.tsx), and [Projects.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/projects/Projects.tsx) to match the official CV details (Santarém, Freelance medical app, Bomsite projects/jobs, Link Consulting, rabbit mobile GmbH) using professional, portfolio-differentiated copy.
+
 ## 2026-06-11 - Interactive Hero Network Graph
 
 ### Structural Changes

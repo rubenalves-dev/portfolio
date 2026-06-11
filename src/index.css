@@ -1559,6 +1559,11 @@ body {
   color: var(--muted);
 }
 
+.project-modal__actions {
+  display: flex;
+  gap: 10px;
+}
+
 .project-modal__github-btn {
   background: var(--ink);
   color: #fff;

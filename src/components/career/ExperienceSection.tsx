@@ -4,31 +4,66 @@ import ExperienceCard from "./ExperienceCard";
 export default function ExperienceSection() {
   const experiences = [
     {
-      role: "Full-Stack Developer (Internship & Junior Developer)",
-      company: "Healthcare Solutions Lab",
-      location: "Braga, Portugal (Hybrid)",
-      period: "Oct 2023 — Present",
+      role: "Independent Fullstack Freelancer",
+      company: "Healthcare SaaS Desktop App",
+      location: "Remote, Portugal",
+      period: "Apr 2026 — Present",
       description:
-        "Designing and maintaining full-stack modular desktop and web applications tailored for clinical workflows, handling patient telemetry and scheduling configurations.",
+        "Architected and built a C# desktop application for a private clinic, designed with a modular architecture to support future commercialization as a SaaS platform.",
       highlights: [
-        "Architected cross-platform features using C# and .NET MAUI to allow hot-pluggable feature loading at hospital sites.",
-        "Engineered secure back-end services in ASP.NET Core, implementing clean architecture and CQRS patterns.",
-        "Migrated legacy medical report views into reactive Angular components, increasing UI load speed by 40%.",
-        "Optimized relational schemas and written complex queries in SQL Server, utilizing Entity Framework Core for entity tracking.",
+        "Designed and implemented a modular desktop system using C# and .NET MAUI to isolate clinical workflows.",
+        "Developed a secure Document Management System (DMS) enabling file categorization, storage, and inline previews.",
+        "Built organization management modules (CRUD) mapping relationships between healthcare personnel, clinics, and roles.",
       ],
     },
     {
-      role: "Freelance Full-Stack Developer",
-      company: "Bespoke Web Solutions",
-      location: "Braga, Portugal",
-      period: "Jun 2021 — Sep 2023",
+      role: "Fullstack Freelancer",
+      company: "Bomsite",
+      location: "Salvaterra de Magos, Santarém, Portugal",
+      period: "Jul 2025 — Present",
       description:
-        "Delivered customized e-commerce storefronts, inventory portals, and custom back-office Content Management Systems (CMS) for SME businesses.",
+        "Developing and maintaining custom CMS and e-commerce platforms for corporate and public sector clients.",
       highlights: [
-        "Crafted custom product catalog engines using C# and SQL Server, handling high-volume product options.",
-        "Integrated payment gateways including Stripe and local Portuguese methods (Multibanco / MBWay).",
-        "Developed responsive frontends in TypeScript and Angular, implementing clean layouts and accessibility rules.",
-        "Built customized light-weight CMS engines to give non-technical shop managers easy product modeling control.",
+        "Engineered production-ready web platforms using C# (ASP.NET), JavaScript, jQuery, and Bootstrap.",
+        "Designed background schedulers and cron tasks to automate business workflows and financial operations.",
+        "Oversaw the full software lifecycle, taking projects from initial requirements and architecture to QA and delivery.",
+      ],
+    },
+    {
+      role: "Software Engineer",
+      company: "Link Consulting",
+      location: "Saldanha, Lisboa, Portugal",
+      period: "Nov 2023 — Feb 2025",
+      description:
+        "Contributed to enterprise web applications, focusing on document management and custom productivity integrations.",
+      highlights: [
+        "Developed workflows and document administration interfaces in Angular.",
+        "Created secure Microsoft Office add-ins utilizing custom authentication to facilitate document metadata indexing and uploading.",
+      ],
+    },
+    {
+      role: "Software Engineer Intern",
+      company: "rabbit mobile GmbH",
+      location: "Sete Rios, Lisboa, Portugal",
+      period: "Feb 2023 — Jul 2023",
+      description:
+        "Gained hands-on experience building design-to-code tooling and working with design systems.",
+      highlights: [
+        "Created a custom Figma plugin to transpile Figma design elements into clean Angular components.",
+        "Conducted validation tests by applying the plugin to real-world projects, measuring developer handoff efficiency.",
+        "Completed structured training on Figma layout constraints and design system architectures.",
+      ],
+    },
+    {
+      role: "Fullstack Developer",
+      company: "Bomsite",
+      location: "Salvaterra de Magos, Santarém, Portugal",
+      period: "Jul 2022 — Oct 2022",
+      description:
+        "Acquired foundational experience building business management utilities for automotive operations.",
+      highlights: [
+        "Built a dedicated back-office management application for a truck repair center.",
+        "Completed professional development training focused on C# and ASP.NET MVC.",
       ],
     },
   ];
