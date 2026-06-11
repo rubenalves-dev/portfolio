@@ -14,35 +14,12 @@ export default function Navbar({ onOpenRecruiterPortal, recruiterActive }: Navba
       </a>
 
       {/* Floating Active Pulse for Internship */}
-      <div
-        className="nav__status"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-          background: "var(--rose-pale)",
-          border: "0.5px solid var(--rose-light)",
-          borderRadius: "99px",
-          padding: "4px 10px",
-          fontSize: "11px",
-          fontFamily: "var(--font-mono)",
-          color: "var(--rose)",
-          marginLeft: "15px",
-        }}
-      >
-        <span
-          style={{
-            width: "6px",
-            height: "6px",
-            background: "var(--rose)",
-            borderRadius: "50%",
-            boxShadow: "0 0 6px var(--rose)",
-          }}
-        />
+      <div className="nav__status">
+        <span className="nav__status-dot" />
         <span>Internship Aug '26</span>
       </div>
 
-      <ul className="nav__links" style={{ marginLeft: "auto", marginRight: "2.5rem" }}>
+      <ul className="nav__links">
         <li>
           <a href="#about" className="nav__link">
             About
@@ -65,39 +42,20 @@ export default function Navbar({ onOpenRecruiterPortal, recruiterActive }: Navba
         </li>
         {recruiterActive && (
           <li>
-            <a
-              href="#letter"
-              className="nav__link"
-              style={{
-                color: "var(--rose)",
-                fontWeight: "500",
-                borderBottom: "1px dashed var(--rose)",
-              }}
-            >
+            <a href="#letter" className="nav__link nav__link--recruiter">
               Cover Letter
             </a>
           </li>
         )}
       </ul>
 
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+      <div className="nav__actions">
         <button
           onClick={onOpenRecruiterPortal}
           className="nav__recruiter-btn"
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            fontFamily: "var(--font-mono)",
-            fontSize: "12px",
-            color: "var(--muted)",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "4px",
-          }}
           title="Recruiter Portal"
         >
-          🔑 <span style={{ textDecoration: "underline" }}>Recruiter Area</span>
+          🔑 <span className="nav__recruiter-btn-text">Recruiter Area</span>
         </button>
         <Button href="#contact" variant="nav-cta" className="nav__cta">
           Get in touch

@@ -35,18 +35,12 @@ export default function ExperienceSection() {
 
   return (
     <section id="experience" className="section section--surface-2">
-      <div
-        className="reveal visible experience__container"
-        style={{ maxWidth: "800px", margin: "0 auto" }}
-      >
+      <div className="reveal visible experience__container">
         <SectionLabel className="experience__label">Experience</SectionLabel>
         <h2 className="section-title experience__title">
           Professional <em>history.</em>
         </h2>
-        <div
-          className="experience__timeline"
-          style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: "2rem" }}
-        >
+        <div className="experience__timeline">
           {experiences.map((exp, idx) => (
             <ExperienceCard
               key={idx}

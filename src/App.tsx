@@ -77,7 +77,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="portfolio-app">
       {/* Navbar */}
       <Navbar
         onOpenRecruiterPortal={() => setRecruiterPortalOpen(true)}
@@ -86,56 +86,17 @@ export default function App() {
 
       {/* Recruiter Alert Toast */}
       {showRecruiterToast && (
-        <div
-          className="recruiter-toast"
-          style={{
-            position: "fixed",
-            bottom: "24px",
-            right: "24px",
-            zIndex: 999,
-            background: "var(--surface)",
-            border: "1.5px solid var(--rose)",
-            borderRadius: "8px",
-            padding: "16px 20px",
-            boxShadow: "0 10px 30px rgba(217, 99, 126, 0.15)",
-            maxWidth: "360px",
-            textAlign: "left",
-            animation: "toast-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
-        >
-          <div
-            className="recruiter-toast__header"
-            style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}
-          >
-            <span
-              className="recruiter-toast__title"
-              style={{ fontSize: "14px", fontWeight: "bold", color: "var(--rose)" }}
-            >
-              💼 Recruiter Mode Active
-            </span>
+        <div className="recruiter-toast">
+          <div className="recruiter-toast__header">
+            <span className="recruiter-toast__title">💼 Recruiter Mode Active</span>
             <button
               onClick={() => setShowRecruiterToast(false)}
               className="recruiter-toast__close-btn"
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "12px",
-                color: "var(--muted)",
-              }}
             >
               ✕
             </button>
           </div>
-          <p
-            className="recruiter-toast__desc"
-            style={{
-              fontSize: "12px",
-              color: "var(--ink-soft)",
-              marginTop: "6px",
-              lineHeight: "1.5",
-            }}
-          >
+          <p className="recruiter-toast__desc">
             A personalized workspace for <strong>{urlCompany}</strong> has been loaded. Check your
             custom Cover Letter below.
           </p>
@@ -145,17 +106,6 @@ export default function App() {
               setShowRecruiterToast(false);
             }}
             className="recruiter-toast__action-btn"
-            style={{
-              background: "var(--rose)",
-              color: "#fff",
-              border: "none",
-              borderRadius: "4px",
-              padding: "4px 8px",
-              fontSize: "11px",
-              fontFamily: "var(--font-mono)",
-              marginTop: "10px",
-              cursor: "pointer",
-            }}
           >
             Open letter builder
           </button>

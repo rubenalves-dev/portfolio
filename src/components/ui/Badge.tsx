@@ -21,21 +21,12 @@ export default function Badge({
     badgeClass = "badge--tag";
   }
 
-  const fullClassName = `badge ${badgeClass} ${className}`.trim();
+  const clickableClass = onClick ? "badge--clickable" : "";
+  const fullClassName = `badge ${badgeClass} ${clickableClass} ${className}`.trim();
 
   if (onClick) {
     return (
-      <button
-        onClick={onClick}
-        className={fullClassName}
-        style={{
-          cursor: "pointer",
-          fontFamily: "var(--font-mono)",
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <button onClick={onClick} className={fullClassName}>
         {children}
       </button>
     );

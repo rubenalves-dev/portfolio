@@ -2,6 +2,26 @@
 
 This document records the structural and architectural modifications applied to this codebase.
 
+## 2026-06-11 - Refactor Inline Styles to BEM CSS Rules
+
+### Structural Changes
+
+- Removed all static inline `style={{ ... }}` declarations across all component files and root `src/App.tsx`.
+- Appended BEM class styling definitions at the end of `src/index.css` for all page sections, controls, forms, panels, and custom cards.
+- Restructured `src/components/ui/PhotoFrame.tsx` into a stateless functional component by replacing manual React state-driven hover shadows and transforms with pure CSS `:hover` states.
+- Cleaned up manual React event-based hover styling in `src/components/projects/ProjectModal.tsx` for close and link buttons using CSS `:hover` overrides.
+- Converted SVG path fill properties in `src/components/layout/Footer.tsx` from React style attributes to BEM class rules (`.footer__logo-path`, `.footer__logo-path--accent`).
+- Added a dynamic `badge--clickable` class in `src/components/ui/Badge.tsx` to encapsulate button badge pointer configurations inside BEM rules.
+
+## 2026-06-11 - Hero Section Simplification
+
+### Structural Changes
+
+- Refactored `src/components/about/Hero.tsx` to simplify the layout from a split two-column grid to a single-column container structure.
+- Removed the redundant right-hand card containing excessive tech badges and stats (`∞ stacks learned`, `600h internship ready`).
+- Integrated the core information (`3+ yrs experience` and main core stack badges: `C# / ASP.NET`, `Angular`, and `MAUI`) into a clean metadata section (`.hero__meta`) situated between the subheading and action buttons.
+- Cleaned up obsolete styles in `src/index.css` and added classes to support the new metadata layout and responsive behaviors.
+
 ## 2026-06-11 - Header Transparency Fix & CSS Syntax Clean Up
 
 ### Structural Changes

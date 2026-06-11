@@ -137,18 +137,7 @@ public async Task<List<ProductDto>> GetFilteredProductsAsync(FilterRequest filte
         <h2 className="section-title projects__title">
           Selected <em>projects.</em>
         </h2>
-        <div
-          className="projects__grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1px",
-            background: "var(--border-med)",
-            border: "0.5px solid var(--border-med)",
-            borderRadius: "8px",
-            overflow: "hidden",
-          }}
-        >
+        <div className="projects__grid">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -160,22 +149,12 @@ public async Task<List<ProductDto>> GetFilteredProductsAsync(FilterRequest filte
             />
           ))}
         </div>
-        <div style={{ marginTop: "2rem", textAlign: "center" }}>
+        <div className="projects__footer">
           <a
             href="https://github.com/raiiaa"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost projects__footer-link"
-            style={{
-              display: "inline-flex",
-              color: "var(--muted)",
-              fontFamily: "var(--font-mono)",
-              fontSize: "13px",
-              letterSpacing: "0.04em",
-              textDecoration: "none",
-              alignItems: "center",
-              gap: "6px",
-            }}
           >
             See all work at GitHub →
           </a>

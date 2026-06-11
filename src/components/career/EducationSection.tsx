@@ -23,18 +23,12 @@ export default function EducationSection() {
 
   return (
     <section id="education" className="section">
-      <div
-        className="reveal visible education__container"
-        style={{ maxWidth: "800px", margin: "0 auto" }}
-      >
+      <div className="reveal visible education__container">
         <SectionLabel className="education__label">Education</SectionLabel>
         <h2 className="section-title education__title">
           Academic <em>milestones.</em>
         </h2>
-        <div
-          className="education__grid"
-          style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginTop: "2rem" }}
-        >
+        <div className="education__grid">
           {educationList.map((edu, idx) => (
             <EducationCard
               key={idx}

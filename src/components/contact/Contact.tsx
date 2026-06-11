@@ -9,7 +9,7 @@ export default function Contact({ onScrollToTop }: ContactProps) {
     <section id="contact" className="section contact">
       <div className="reveal visible contact__grid">
         {/* Contact Left Info */}
-        <div style={{ textAlign: "left" }}>
+        <div className="contact__left">
           <SectionLabel className="contact__label">Contact</SectionLabel>
           <h2 className="section-title contact__title">
             Ready for the <em>next challenge.</em>

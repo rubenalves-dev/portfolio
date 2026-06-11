@@ -29,8 +29,8 @@ export default function StackDetail() {
         { name: "Distributed systems", active: true },
         { name: "Event-driven design", active: true },
         { name: "RESTful APIs", active: true },
-        { name: "Domain-driven design", active: true },
-        { name: "CQRS / Event sourcing", active: false },
+        { name: "DDD & EDA", active: true },
+        { name: "MVC", active: true },
       ],
     },
     {
@@ -52,10 +52,7 @@ export default function StackDetail() {
         <h2 className="section-title stack__title">
           The full <em>toolkit.</em>
         </h2>
-        <div
-          className="stack__columns"
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem" }}
-        >
+        <div className="stack__columns">
           {stackGroups.map((group, idx) => (
             <StackColumn key={idx} title={group.title} items={group.items} />
           ))}
