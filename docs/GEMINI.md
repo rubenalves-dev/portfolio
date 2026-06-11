@@ -2,6 +2,14 @@
 
 This document records the structural and architectural modifications applied to this codebase.
 
+## 2026-06-11 - Interactive Hero Network Graph
+
+### Structural Changes
+
+- Created [NetworkGraph.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/ui/NetworkGraph.tsx) to handle canvas-based floating physics node particles, connecting links, and dynamic mouse-attraction interactions (listening on parent section hover for full-area coverage). Fixed node initialization to size particles dynamically inside the animation loop when non-zero bounds are first loaded, resolving initial Y-axis bottom clustering.
+- Restructured [Hero.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/about/Hero.tsx) to overlay a single `.hero__content` text panel on top of the sibling `<NetworkGraph />` canvas.
+- Configured [index.css](file:///Users/rubenalves/Documents/repos/portfolio/src/index.css) to make the network graph canvas fill the entire hero section background (styled with a radial light gradient highlighting the right side), centering and offsetting the text panel by `10%` to the left for an asymmetric premium visual. Automatically disabled canvas rendering on touch screens and mobile viewports.
+
 ## 2026-06-11 - Refactor Inline Styles to BEM CSS Rules
 
 ### Structural Changes

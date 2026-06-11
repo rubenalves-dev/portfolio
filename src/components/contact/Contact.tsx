@@ -39,7 +39,7 @@ export default function Contact({ onScrollToTop }: ContactProps) {
               </div>
             </a>
             <a
-              href="https://github.com/raiiaa"
+              href="https://github.com/rubenalves-dev"
               target="_blank"
               rel="noopener noreferrer"
               className="contact__link"
@@ -58,11 +58,11 @@ export default function Contact({ onScrollToTop }: ContactProps) {
               </div>
               <div>
                 <div className="contact__link-label">GitHub</div>
-                <div className="contact__link-val">github.com/raiiaa</div>
+                <div className="contact__link-val">github.com/rubenalves-dev</div>
               </div>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/raiiaa"
               target="_blank"
               rel="noopener noreferrer"
               className="contact__link"
@@ -99,7 +99,7 @@ export default function Contact({ onScrollToTop }: ContactProps) {
           <div className="contact__right-cta-sub">
             600 hours. Full-time. Eager to learn and contribute from day one.
           </div>
-          <a href="mailto:ruben@raiiaa.dev" className="button button--white">
+          <a href="mailto:hello@raiiaa.dev" className="button button--white">
             Send me an email →
           </a>
         </div>

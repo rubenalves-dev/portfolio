@@ -1,5 +1,6 @@
 import Button from "../ui/Button";
 import Badge from "../ui/Badge";
+import NetworkGraph from "../ui/NetworkGraph";
 
 type HeroProps = {
   onProjectsClick: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
@@ -27,7 +28,7 @@ export default function Hero({ onProjectsClick, onContactClick }: HeroProps) {
 
   return (
     <section className="hero" id="top">
-      <div className="hero__container">
+      <div className="hero__content">
         {/* Glow badge for internship */}
         <div className="hero__status-glow">
           <span className="hero__pulse-glow-dot" />
@@ -101,6 +102,8 @@ export default function Hero({ onProjectsClick, onContactClick }: HeroProps) {
           </Button>
         </div>
       </div>
+
+      <NetworkGraph />
     </section>
   );
 }

@@ -210,6 +210,7 @@ body {
 }
 .section-title em {
   font-style: italic;
+  font-weight: 100;
   color: hsl(var(--primary));
 }
 
@@ -296,8 +297,11 @@ body {
 /* ─── HERO CELL ─── */
 .hero {
   min-height: calc(100vh - 80px);
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 6rem 3.5rem;
 }
 @media (max-width: 768px) {
@@ -307,9 +311,39 @@ body {
   }
 }
 
-.hero__container {
-  max-width: 800px;
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
   width: 100%;
+  margin-inline: auto;
+  text-align: left;
+}
+@media (max-width: 1024px) {
+  .hero__content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+.network-graph {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: crosshair;
+  background: radial-gradient(
+    circle at 75% 50%,
+    hsl(var(--secondary) / 0.6) 0%,
+    hsl(var(--background)) 100%
+  );
+}
+@media (max-width: 1024px) {
+  .network-graph {
+    display: none;
+  }
 }
 
 .hero__title {
