@@ -6,16 +6,8 @@ type ContactProps = {
 
 export default function Contact({ onScrollToTop }: ContactProps) {
   return (
-    <section id="contact" className="section section--ink contact">
-      <div
-        className="reveal visible contact__grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
-          alignItems: "center",
-        }}
-      >
+    <section id="contact" className="section contact">
+      <div className="reveal visible contact__grid">
         {/* Contact Left Info */}
         <div style={{ textAlign: "left" }}>
           <SectionLabel className="contact__label">Contact</SectionLabel>
@@ -26,10 +18,7 @@ export default function Contact({ onScrollToTop }: ContactProps) {
             I'm looking for a full-time 600h internship starting August 3rd, 2026. If you think I'd
             be a good fit — let's talk.
           </p>
-          <div
-            className="contact__links"
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-          >
+          <div className="contact__links">
             <a href="#top" className="contact__link" onClick={onScrollToTop}>
               <div className="contact__link-icon">
                 <svg

@@ -86,13 +86,19 @@ export default function Hero({ onProjectsClick, onContactClick }: HeroProps) {
           >
             Let's talk →
           </Button>
-          <a href="#projects" className="btn-ghost hero__action-link" onClick={onProjectsClick}>
+          <Button
+            href="#projects"
+            variant="ghost"
+            onClick={onProjectsClick}
+            className="hero__action-link"
+          >
             <svg
+              width="16"
+              height="16"
               viewBox="0 0 16 16"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
-              style={{ marginRight: "6px" }}
             >
               <rect x="2" y="2" width="5" height="5" rx="0.5" />
               <rect x="9" y="2" width="5" height="5" rx="0.5" />
@@ -100,7 +106,7 @@ export default function Hero({ onProjectsClick, onContactClick }: HeroProps) {
               <rect x="9" y="9" width="5" height="5" rx="0.5" />
             </svg>
             View projects
-          </a>
+          </Button>
         </div>
       </div>
 

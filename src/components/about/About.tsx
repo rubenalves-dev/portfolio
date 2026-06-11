@@ -167,7 +167,7 @@ export default function About() {
           className="about__right"
           style={{ display: "flex", justifyContent: "center", position: "sticky", top: "120px" }}
         >
-          <PhotoFrame src="/profile.png" alt="Rúben Alves Portrait" />
+          <PhotoFrame src="/profile.jpeg" alt="Rúben Alves Portrait" />
         </div>
       </div>
     </section>

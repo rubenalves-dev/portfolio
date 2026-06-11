@@ -11,7 +11,7 @@ export type ProjectData = {
   tags: string[];
   architecture: string;
   challenges: string;
-  repo: string;
+  repo?: string;
   codeSnippet: {
     language: string;
     code: string;
