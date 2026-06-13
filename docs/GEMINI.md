@@ -2,6 +2,24 @@
 
 This document records the structural and architectural modifications applied to this codebase.
 
+## 2026-06-13 - Modular CSS Refactoring
+
+### Structural Changes
+
+- Extracted monolithic styles from [index.css](file:///Users/rubenalves/Documents/repos/portfolio/src/index.css) into modular CSS files grouped under a new `src/styles/` directory:
+  - Created [base.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/base.css) for fonts, resets, CSS variables, body styles, scrollbars, and print layout modifiers.
+  - Created [animations.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/animations.css) for standard keyframe definitions and reveal animation classes.
+  - Created [atoms.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/atoms.css) for primitive UI atoms (buttons, badges, section labels/titles) and the PhotoFrame layout styles.
+  - Created [navbar.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/navbar.css) for top navigation headers, active modes, and status dots.
+  - Created [hero.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/hero.css) for the hero layout, text alignments, network canvas overlays, and live indicators.
+  - Created [about.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/about.css) for biographical grid structures, text blocks, and descriptive cards.
+  - Created [career.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/career.css) for career path cards, timeline trees, and stack columns lists.
+  - Created [projects.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/projects.css) for project showcase cards, grids, hover highlights, and overlay dialog modals.
+  - Created [contact.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/contact.css) for contact cards links, social icons, and right call-to-actions.
+  - Created [footer.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/footer.css) for footer brand grids, logo vectors, quick links flexes, and copyrights.
+  - Created [recruiter.css](file:///Users/rubenalves/Documents/repos/portfolio/src/styles/recruiter.css) for recruiter warning toasts and the interactive cover letter sheet modals.
+- Rewrote [index.css](file:///Users/rubenalves/Documents/repos/portfolio/src/index.css) to act solely as a clean stylesheet hub referencing the modular files via native CSS `@import` statements.
+
 ## 2026-06-12 - Footer Redesign & Simplification
 
 ### Structural Changes

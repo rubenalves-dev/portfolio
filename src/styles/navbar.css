@@ -1,0 +1,112 @@
+/* ─── NAVBAR CELL ─── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: hsl(var(--background) / 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid hsl(var(--foreground) / 0.08);
+}
+@media (max-width: 1024px) {
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: hsl(var(--foreground));
+}
+
+.nav__logo-svg {
+  width: 100px;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+@media (max-width: 1024px) {
+  .nav__links {
+    display: none;
+  }
+}
+
+.nav__links a {
+  font-size: var(--font-size-info);
+  font-family: var(--font-body);
+  color: hsl(var(--muted));
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.nav__links a:hover {
+  color: hsl(var(--primary));
+}
+
+.nav__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--rose-pale);
+  border: 0.5px solid var(--rose-light);
+  border-radius: 99px;
+  padding: 4px 10px;
+  font-size: var(--font-size-info);
+  font-family: var(--font-mono);
+  color: var(--rose);
+  margin-left: 15px;
+
+  @media (max-width: 512px) {
+    display: none;
+  }
+}
+
+.nav__status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--rose);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--rose);
+}
+
+.nav__link--recruiter {
+  color: var(--rose) !important;
+  font-weight: 500;
+  border-bottom: 1px dashed var(--rose);
+}
+
+.nav__actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav__recruiter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav__recruiter-btn-text {
+  text-decoration: underline;
+}

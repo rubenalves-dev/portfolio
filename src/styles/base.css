@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Arciform";
+  src: url("../assets/fonts/Arciform.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* shadcn HSL color design system */
+  --background: 30 20% 98%; /* #faf9f7 */
+  --foreground: 20 20% 8%; /* #1a1512 */
+
+  --card: 0 0% 100%;
+  --card-foreground: 20 20% 8%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 20% 8%;
+
+  /* Rose theme primary */
+  --primary: 346 64% 62%; /* #D9637E */
+  --primary-foreground: 0 0% 100%;
+
+  /* Surface 2 secondary */
+  --secondary: 30 15% 94%; /* #f2efea */
+  --secondary-foreground: 20 20% 8%;
+
+  /* Brown-gray muted values */
+  --muted: 24 10% 45%; /* #7a716b */
+  --muted-foreground: 24 10% 55%;
+
+  /* Rose pale accent values */
+  --accent: 346 80% 95%; /* #fbeaf0 */
+  --accent-foreground: 346 64% 62%;
+
+  --border: 20 20% 92%;
+  --ring: 346 64% 62%;
+  --radius: 6px;
+
+  /* Custom properties for inline styles */
+  --surface: hsl(var(--card));
+  --surface-2: hsl(var(--secondary));
+  --border-med: hsl(var(--foreground) / 0.14);
+  --rose: hsl(var(--primary));
+  --rose-light: hsl(var(--primary) / 0.4);
+  --rose-pale: hsl(var(--accent));
+  --rose-dark: hsl(346 60% 45%);
+  --ink: hsl(var(--foreground));
+  --ink-soft: hsl(24 10% 30%);
+
+  /* Typography */
+  --font-display: "DM Mono", Georgia, serif;
+  --font-body: "Arciform", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Font Sizes */
+  --font-size-h1: clamp(3rem, 5vw, 4.5rem); /* Hero heading */
+  --font-size-h2: clamp(2rem, 3.5vw, 2.75rem); /* Section titles */
+  --font-size-h3: 1.25rem; /* Card, modal, contact CTA titles */
+  --font-size-body: 1rem; /* Main body text (about, recruiter cover, hero sub) */
+  --font-size-info: 0.875rem; /* All other secondary text, tags, badges, buttons, nav, labels */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.35);
+  border-radius: var(--radius);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+.portfolio-app {
+  position: relative;
+}
+
+/* Print modifications for custom cover letter */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-section,
+  .print-section * {
+    visibility: visible;
+  }
+  .print-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0 !important;
+  }
+}

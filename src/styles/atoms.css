@@ -1,0 +1,263 @@
+/* ─── ATOMS ─── */
+
+/* Button Block */
+.button {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button--primary {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  padding: 0.75rem 1.75rem;
+}
+.button--primary:hover {
+  background: hsl(var(--primary));
+  transform: translateY(-1px);
+}
+
+.button--ghost {
+  background: transparent;
+  color: hsl(var(--muted));
+  padding: 0;
+}
+.button--ghost:hover {
+  color: hsl(var(--primary));
+  transform: translateY(-1px);
+}
+
+.button--white {
+  background: #fff;
+  color: hsl(var(--primary));
+  padding: 0.7rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.button--white:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.button--nav-cta {
+  background: hsl(var(--primary));
+  color: #fff !important;
+  padding: 0.45rem 1.1rem;
+}
+.button--nav-cta:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* Badge Block (Tech Chips) */
+.badge {
+  background: hsl(var(--background));
+  border: 0.5px solid hsl(var(--foreground) / 0.14);
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: hsl(var(--foreground));
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.badge:hover {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+}
+
+.badge--core {
+  border-color: hsl(var(--primary) / 0.4);
+  color: hsl(var(--primary));
+  background: hsl(var(--accent));
+}
+
+.badge--tag {
+  font-size: var(--font-size-info);
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: hsl(var(--secondary));
+  color: hsl(var(--muted));
+  border: 0.5px solid hsl(var(--foreground) / 0.08);
+  letter-spacing: 0.04em;
+}
+
+.badge--clickable {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section Label Block */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: hsl(var(--primary));
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: hsl(var(--primary));
+}
+
+/* Section Title Block */
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  font-weight: 100;
+  line-height: 1.1;
+  margin-bottom: 3.5rem;
+  color: hsl(var(--foreground));
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 900;
+  color: hsl(var(--primary));
+}
+
+/* ─── CELLS & SECTIONS ─── */
+.section {
+  padding: 6rem 3.5rem;
+}
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.section--surface-2 {
+  background: hsl(var(--secondary));
+  border-top: 0.5px solid hsl(var(--foreground) / 0.08);
+  border-bottom: 0.5px solid hsl(var(--foreground) / 0.08);
+}
+
+.section--ink {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+}
+
+/* Photo Frame component BEM layout */
+.photo-frame {
+  background: var(--surface);
+  border: 0.5px solid var(--border-med);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 30px -15px rgba(26, 21, 18, 0.12);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.photo-frame:hover {
+  box-shadow:
+    0 20px 40px -10px rgba(217, 99, 126, 0.15),
+    0 0 0 1px var(--rose-light);
+}
+
+.photo-frame__img-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--surface-2);
+}
+
+.photo-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+}
+
+.photo-frame:hover .photo-frame__img {
+  transform: scale(1.05);
+}
+
+.photo-frame__status-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(26, 21, 18, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.photo-frame__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse 2s infinite;
+}
+
+.photo-frame__status-text {
+  color: #faf9f7;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.photo-frame__meta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-frame__name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-body);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.photo-frame__sub {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.photo-frame__active-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--rose);
+  background: var(--rose-pale);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 0.5px solid var(--rose-light);
+}

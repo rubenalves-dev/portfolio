@@ -1,0 +1,110 @@
+/* ─── CONTACT CELL ─── */
+.contact {
+  background: hsl(var(--background));
+  border-top: 0.5px solid hsl(var(--foreground) / 0.08);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-end;
+}
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.contact__sub {
+  font-size: var(--font-size-body);
+  color: hsl(var(--muted));
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact__link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  padding: 1rem 1.25rem;
+  background: hsl(var(--secondary));
+  border: 0.5px solid hsl(var(--foreground) / 0.08);
+  border-radius: 5px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.contact__link:hover {
+  border-color: hsl(var(--primary) / 0.4);
+  background: hsl(var(--accent));
+  transform: translateY(-2px);
+}
+
+.contact__link-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: hsl(var(--primary) / 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--primary));
+  flex-shrink: 0;
+}
+
+.contact__link-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact__link-val {
+  font-size: var(--font-size-info);
+  color: hsl(var(--foreground));
+}
+
+.contact__right-cta {
+  background: hsl(var(--primary));
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 10px 30px hsl(var(--primary) / 0.15);
+}
+@media (max-width: 480px) {
+  .contact__right-cta {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.contact__right-cta-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h3);
+  color: #fff;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.contact__right-cta-sub {
+  font-size: var(--font-size-info);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contact__left {
+  text-align: left;
+}
+/* ─── CONTACT CELL END ─── */

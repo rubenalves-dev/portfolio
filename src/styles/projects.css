@@ -1,0 +1,307 @@
+/* ─── PROJECTS BLOCK / MOLECULE ─── */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 0.5px solid hsl(var(--foreground) / 0.14);
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (width < 80rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width < 40rem) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.project-card {
+  background: hsl(var(--background));
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  text-align: left;
+}
+
+.project-card:hover {
+  background: hsl(var(--accent));
+}
+
+.project-card__num {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: hsl(var(--primary) / 0.55);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.06em;
+}
+
+.project-card__name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h3);
+  line-height: 1.2;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.75rem;
+}
+
+.project-card__desc {
+  font-size: var(--font-size-info);
+  color: hsl(var(--muted));
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+  margin-top: auto;
+}
+
+.project-card__link {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: hsl(var(--primary));
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.project-card:hover .project-card__link {
+  opacity: 1;
+}
+
+/* Projects & ProjectModal */
+.projects__footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.projects__footer-link {
+  display: inline-flex;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.project-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 21, 18, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.project-modal__dialog {
+  position: relative;
+  background: var(--surface);
+  border: 0.5px solid var(--border-med);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px -15px rgba(26, 21, 18, 0.25);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  animation: modal-enter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-modal__header {
+  padding: 1.75rem 2rem;
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-modal__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--rose);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-modal__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+.project-modal__close {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  color: var(--ink-soft);
+  transition: all 0.2s;
+}
+
+.project-modal__close:hover {
+  border-color: var(--rose);
+  color: var(--rose);
+}
+
+.project-modal__body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.project-modal__meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-2);
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  border: 0.5px solid var(--border);
+}
+
+.project-modal__timeline-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+}
+
+.project-modal__timeline-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--ink);
+}
+
+.project-modal__tags {
+  display: flex;
+  gap: 6px;
+}
+
+.project-modal__tag {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  background: var(--surface);
+  color: var(--rose);
+  border: 0.5px solid var(--rose-light);
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
+.project-modal__section {
+  text-align: left;
+}
+
+.project-modal__section-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h3);
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.project-modal__text {
+  font-size: var(--font-size-info);
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.project-modal__code-block {
+  background: var(--ink);
+  color: #faf9f7;
+  border-radius: 6px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  line-height: 1.6;
+  border: 0.5px solid var(--border-med);
+}
+
+.project-modal__code-header {
+  color: var(--rose-light);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--font-size-info);
+  text-transform: uppercase;
+}
+
+.project-modal__code-pre {
+  margin: 0;
+}
+
+.project-modal__footer {
+  padding: 1.5rem 2rem;
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-2);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.project-modal__footer-note {
+  font-size: var(--font-size-info);
+  font-family: var(--font-mono);
+  color: var(--muted);
+}
+
+.project-modal__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.project-modal__github-btn {
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  padding: 0.6rem 1.25rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-modal__github-btn:hover {
+  background: var(--rose);
+}

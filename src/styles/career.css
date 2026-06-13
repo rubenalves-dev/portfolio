@@ -1,0 +1,208 @@
+/* ─── STACK DETAIL CELL ─── */
+.stack__columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .stack__columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .stack__columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stack__column-title {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: hsl(var(--muted));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.5px solid hsl(var(--foreground) / 0.14);
+  margin-bottom: 1rem;
+}
+
+.stack__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-info);
+  color: var(--ink-soft);
+  padding: 0.4rem 0;
+}
+
+.stack__item-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--foreground) / 0.14);
+  flex-shrink: 0;
+}
+.stack__item-dot--active {
+  background: hsl(var(--primary));
+}
+
+.stack__column {
+  text-align: left;
+}
+
+/* Education / Experience / Career BEM extensions */
+.education-card {
+  border: 0.5px solid var(--border-med);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.education-card:hover {
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+.education-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.education-card__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h3);
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.education-card__school {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.education-card__period {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  background: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 0.5px solid var(--border);
+}
+
+.education-card__desc {
+  font-size: var(--font-size-info);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.education__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.experience-card {
+  border-left: 2px solid var(--rose-light);
+  padding-left: 2rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+  text-align: left;
+}
+
+.experience-card__node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--rose);
+  position: absolute;
+  left: -7px;
+  top: 6px;
+  border: 2px solid var(--surface);
+}
+
+.experience-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.experience-card__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h3);
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.experience-card__meta {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.experience-card__period {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  color: var(--rose);
+  background: var(--rose-pale);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 0.5px solid var(--rose-light);
+}
+
+.experience-card__desc {
+  font-size: var(--font-size-info);
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.experience-card__list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.experience-card__item {
+  font-size: var(--font-size-info);
+  color: var(--muted);
+  margin-bottom: 0.45rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.experience-card__bullet {
+  color: var(--rose);
+  flex-shrink: 0;
+}
+
+.experience__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
