@@ -4,12 +4,12 @@ import ExperienceCard from "./ExperienceCard";
 export default function ExperienceSection() {
   const experiences = [
     {
-      role: "Independent Fullstack Freelancer",
+      role: "Fullstack Freelancer",
       company: "Healthcare SaaS Desktop App",
       location: "Remote, Portugal",
       period: "Apr 2026 — Present",
       description:
-        "Architected and built a C# desktop application for a private clinic, designed with a modular architecture to support future commercialization as a SaaS platform.",
+        "Architected and built, alongside with another freelancer, a C# desktop application for a private clinic, designed with a modular architecture to support future commercialization as a SaaS platform.",
       highlights: [
         "Designed and implemented a modular desktop system using C# and .NET MAUI to isolate clinical workflows.",
         "Developed a secure Document Management System (DMS) enabling file categorization, storage, and inline previews.",

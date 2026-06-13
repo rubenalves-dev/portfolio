@@ -2,6 +2,32 @@
 
 This document records the structural and architectural modifications applied to this codebase.
 
+## 2026-06-12 - Footer Redesign & Simplification
+
+### Structural Changes
+
+- Simplified [Footer.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/layout/Footer.tsx) layout by removing the Navigation links column and the brand description paragraph, and cleaning up the unused `handleNavLinkClick` function.
+- Updated [index.css](file:///Users/rubenalves/Documents/repos/portfolio/src/index.css) to increase the footer logo svg width to `14rem` (~224px, satisfying >200px) and styled the layout to place the logo on the left and social/connect links in a horizontal flexbox row (`.footer__socials`) on the right.
+- Streamlined footer height by reducing vertical paddings (from `4.5rem` to `3rem` on desktop, and `3rem` to `2rem` on mobile) and bottom margins.
+
+## 2026-06-12 - Typography Simplification & Font Streamlining
+
+### Structural Changes
+
+- Added custom [Arciform](file:///Users/rubenalves/Documents/repos/portfolio/src/assets/fonts/Arciform.otf) font asset in `src/assets/fonts/` as the main sans-serif typeface to align visual identity with the customized logo.
+- Modified [index.html](file:///Users/rubenalves/Documents/repos/portfolio/index.html) Google Fonts imports to remove `Instrument Sans` and retain only `DM Serif Display` and `DM Mono`.
+- Updated [index.css](file:///Users/rubenalves/Documents/repos/portfolio/src/index.css) to load local `Arciform` font-face, declare unified fluid typography variables (`--font-size-h1`, `--font-size-h2`, `--font-size-h3`, `--font-size-body`, `--font-size-info` using rem units), and remove all hardcoded font-sizes throughout.
+- Restrained the serif font (`var(--font-display)`) exclusively to the main page section titles and hero headings, re-mapping all other headings, card names, modal sections, and portal elements to the sans-serif `Arciform` font (`var(--font-body)`).
+- Swapped navbar links `.nav__links a` from using `--font-mono` (monospace) to `--font-body` (sans-serif / Arciform) to simplify visual headers.
+
+## 2026-06-12 - Secret Recruiter Portal Shortcut
+
+### Structural Changes
+
+- Modified [Navbar.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/layout/Navbar.tsx) to remove the visible `Cover Letter` link and the `🔑 Recruiter Area` button. Implemented a secret shortcut on the "Get in touch" `Button` using `metaKey + altKey` (Command + Option on macOS) and `ctrlKey + altKey` (Control + Alt on Windows) to open the Recruiter Portal modal without triggering normal scroll navigation.
+- Modified [Footer.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/components/layout/Footer.tsx) to completely remove the visible `🔑 Recruiter Access` button and simplified its props.
+- Modified [App.tsx](file:///Users/rubenalves/Documents/repos/portfolio/src/App.tsx) to update component instances of `<Navbar>` and `<Footer>` by removing outdated properties no longer required.
+
 ## 2026-06-11 - Portfolio Content Sync with CV
 
 ### Structural Changes

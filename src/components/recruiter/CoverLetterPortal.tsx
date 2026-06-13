@@ -224,10 +224,12 @@ Rúben Alves`;
             {/* Letter Signature */}
             <div className="recruiter-portal__signature">
               <div>
+                <div className="recruiter-portal__signature-title">Atenciosamente,</div>
                 <div className="recruiter-portal__signature-name">Rúben Alves</div>
-                <div className="recruiter-portal__signature-title">Atenciosamente</div>
               </div>
-              <div className="recruiter-portal__signature-location">Braga, Portugal</div>
+              <div className="recruiter-portal__signature-location">
+                Benavente, Santarém, Portugal
+              </div>
             </div>
           </div>
         </div>

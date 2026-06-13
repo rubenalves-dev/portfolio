@@ -16,7 +16,6 @@ export default function App() {
   // Modal & Portal States
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [recruiterPortalOpen, setRecruiterPortalOpen] = useState(false);
-  const [recruiterModeActive, setRecruiterModeActive] = useState(false);
 
   // Recruiter fields pre-fill state from URL
   const [urlCompany, setUrlCompany] = useState("Company");
@@ -32,7 +31,6 @@ export default function App() {
     const managerParam = params.get("manager") || params.get("recruiter") || params.get("hiring");
 
     if (companyParam || roleParam || managerParam) {
-      setRecruiterModeActive(true);
       if (companyParam) setUrlCompany(companyParam);
       if (roleParam) setUrlRole(roleParam);
       if (managerParam) setUrlManager(managerParam);
@@ -79,10 +77,7 @@ export default function App() {
   return (
     <div className="portfolio-app">
       {/* Navbar */}
-      <Navbar
-        onOpenRecruiterPortal={() => setRecruiterPortalOpen(true)}
-        recruiterActive={recruiterModeActive}
-      />
+      <Navbar onOpenRecruiterPortal={() => setRecruiterPortalOpen(true)} />
 
       {/* Recruiter Alert Toast */}
       {showRecruiterToast && (
@@ -127,7 +122,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenRecruiterPortal={() => setRecruiterPortalOpen(true)} />
+      <Footer />
 
       {/* Project Case Study Details Modal */}
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />

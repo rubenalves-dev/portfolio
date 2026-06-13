@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Arciform";
+  src: url("./assets/fonts/Arciform.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -49,9 +56,16 @@
   --ink-soft: hsl(24 10% 30%);
 
   /* Typography */
-  --font-display: "DM Serif Display", Georgia, serif;
-  --font-body: "Instrument Sans", sans-serif;
+  --font-display: "DM Mono", Georgia, serif;
+  --font-body: "Arciform", sans-serif;
   --font-mono: "DM Mono", monospace;
+
+  /* Font Sizes */
+  --font-size-h1: clamp(3rem, 5vw, 4.5rem); /* Hero heading */
+  --font-size-h2: clamp(2rem, 3.5vw, 2.75rem); /* Section titles */
+  --font-size-h3: 1.25rem; /* Card, modal, contact CTA titles */
+  --font-size-body: 1rem; /* Main body text (about, recruiter cover, hero sub) */
+  --font-size-info: 0.875rem; /* All other secondary text, tags, badges, buttons, nav, labels */
 }
 
 html {
@@ -62,7 +76,7 @@ body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--font-size-body);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -89,7 +103,7 @@ body {
 /* Button Block */
 .button {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-info);
   letter-spacing: 0.04em;
   text-decoration: none;
   display: inline-flex;
@@ -150,7 +164,7 @@ body {
   border-radius: 4px;
   padding: 0.6rem 0.75rem;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground));
   transition:
     border-color 0.2s,
@@ -171,7 +185,7 @@ body {
 }
 
 .badge--tag {
-  font-size: 10px;
+  font-size: var(--font-size-info);
   padding: 3px 8px;
   border-radius: 3px;
   background: hsl(var(--secondary));
@@ -183,7 +197,7 @@ body {
 /* Section Label Block */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--primary));
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -203,14 +217,15 @@ body {
 /* Section Title Block */
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: var(--font-size-h2);
+  font-weight: 100;
   line-height: 1.1;
   margin-bottom: 3.5rem;
   color: hsl(var(--foreground));
 }
 .section-title em {
   font-style: italic;
-  font-weight: 100;
+  font-weight: 900;
   color: hsl(var(--primary));
 }
 
@@ -283,8 +298,8 @@ body {
 }
 
 .nav__links a {
-  font-size: 13px;
-  font-family: var(--font-mono);
+  font-size: var(--font-size-info);
+  font-family: var(--font-body);
   color: hsl(var(--muted));
   text-decoration: none;
   letter-spacing: 0.04em;
@@ -348,7 +363,7 @@ body {
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-size: var(--font-size-h1);
   line-height: 1.07;
   color: hsl(var(--foreground));
   margin-bottom: 1.75rem;
@@ -360,7 +375,7 @@ body {
 }
 
 .hero__sub {
-  font-size: 1.05rem;
+  font-size: var(--font-size-body);
   color: hsl(var(--muted));
   line-height: 1.75;
   max-width: 580px;
@@ -395,14 +410,14 @@ body {
 
 .hero__meta-val {
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: var(--font-size-h2);
   color: hsl(var(--primary));
   line-height: 1;
 }
 
 .hero__meta-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--muted));
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -422,7 +437,7 @@ body {
 
 .hero__meta-stack-title {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--muted));
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -457,7 +472,7 @@ body {
 }
 
 .about__body p {
-  font-size: 1.05rem;
+  font-size: var(--font-size-body);
   color: hsl(var(--foreground));
   line-height: 1.8;
   margin-bottom: 1.25rem;
@@ -490,13 +505,13 @@ body {
 }
 
 .about__card-icon {
-  font-size: 1.3rem;
+  font-size: var(--font-size-h3);
   margin-bottom: 0.5rem;
 }
 
 .about__card-title {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: hsl(var(--muted));
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -504,7 +519,7 @@ body {
 }
 
 .about__card-text {
-  font-size: 0.9rem;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground));
   line-height: 1.5;
 }
@@ -512,17 +527,19 @@ body {
 /* ─── PROJECTS BLOCK / MOLECULE ─── */
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: hsl(var(--foreground) / 0.14);
+  /*background: hsl(var(--foreground) / 0.14);*/
   border: 0.5px solid hsl(var(--foreground) / 0.14);
   border-radius: 8px;
   overflow: hidden;
-}
-@media (max-width: 900px) {
-  .projects__grid {
-    grid-template-columns: 1fr;
-    gap: 1px;
+
+  @media (width < 80rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width < 40rem) {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -537,13 +554,14 @@ body {
   height: 100%;
   text-align: left;
 }
+
 .project-card:hover {
   background: hsl(var(--accent));
 }
 
 .project-card__num {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--primary) / 0.55);
   margin-bottom: 1.5rem;
   letter-spacing: 0.06em;
@@ -551,14 +569,14 @@ body {
 
 .project-card__name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: var(--font-size-h3);
   line-height: 1.2;
   color: hsl(var(--foreground));
   margin-bottom: 0.75rem;
 }
 
 .project-card__desc {
-  font-size: 0.9rem;
+  font-size: var(--font-size-info);
   color: hsl(var(--muted));
   line-height: 1.65;
   margin-bottom: 1.5rem;
@@ -574,7 +592,7 @@ body {
 
 .project-card__link {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--primary));
   text-decoration: none;
   letter-spacing: 0.04em;
@@ -608,7 +626,7 @@ body {
 
 .stack__column-title {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--muted));
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -621,7 +639,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
+  font-size: var(--font-size-info);
   color: var(--ink-soft);
   padding: 0.4rem 0;
 }
@@ -647,7 +665,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: flex-end;
 }
 @media (max-width: 900px) {
   .contact__grid {
@@ -657,7 +675,7 @@ body {
 }
 
 .contact__sub {
-  font-size: 1rem;
+  font-size: var(--font-size-body);
   color: hsl(var(--muted));
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -703,15 +721,15 @@ body {
 
 .contact__link-label {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: hsl(var(--muted));
+  font-size: var(--font-size-info);
+  color: var(--muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 2px;
 }
 
 .contact__link-val {
-  font-size: 0.95rem;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground));
 }
 
@@ -730,14 +748,14 @@ body {
 
 .contact__right-cta-title {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: var(--font-size-h3);
   color: #fff;
   margin-bottom: 0.75rem;
   line-height: 1.25;
 }
 
 .contact__right-cta-sub {
-  font-size: 0.95rem;
+  font-size: var(--font-size-info);
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -785,7 +803,7 @@ body {
 }
 
 .footer__description {
-  font-size: 0.95rem;
+  font-size: var(--font-size-info);
   color: hsl(var(--muted));
   line-height: 1.6;
   max-width: 320px;
@@ -799,7 +817,7 @@ body {
 
 .footer__column-title {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground) / 0.4);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -814,7 +832,7 @@ body {
 
 .footer__link {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground) / 0.7);
   text-decoration: none;
   transition:
@@ -836,7 +854,7 @@ body {
   border: none;
   padding: 0;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground) / 0.7);
   cursor: pointer;
   transition:
@@ -876,14 +894,14 @@ body {
 
 .footer__copy {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground) / 0.4);
   letter-spacing: 0.04em;
 }
 
 .footer__url {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--primary));
   letter-spacing: 0.06em;
   text-decoration: none;
@@ -897,7 +915,7 @@ body {
 
 .footer__scroll-top {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: hsl(var(--foreground) / 0.4);
   background: none;
   border: none;
@@ -1022,7 +1040,7 @@ body {
 }
 
 .recruiter-toast__title {
-  font-size: 14px;
+  font-size: var(--font-size-info);
   font-weight: bold;
   color: var(--rose);
 }
@@ -1031,12 +1049,12 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: var(--muted);
 }
 
 .recruiter-toast__desc {
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: var(--ink-soft);
   margin-top: 6px;
   line-height: 1.5;
@@ -1048,7 +1066,7 @@ body {
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
-  font-size: 11px;
+  font-size: var(--font-size-info);
   font-family: var(--font-mono);
   margin-top: 10px;
   cursor: pointer;
@@ -1070,7 +1088,7 @@ body {
 }
 
 .about__text {
-  font-size: 1.05rem;
+  font-size: var(--font-size-body);
   color: var(--ink-soft);
   line-height: 1.8;
   margin-bottom: 1.25rem;
@@ -1082,7 +1100,7 @@ body {
 
 .about__grid-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1124,7 +1142,7 @@ body {
 
 .hero__status-text {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   font-weight: 500;
   color: var(--rose-dark);
   letter-spacing: 0.08em;
@@ -1156,21 +1174,21 @@ body {
 
 .education-card__title {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: var(--font-size-h3);
   color: var(--ink);
   line-height: 1.2;
 }
 
 .education-card__school {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   margin-top: 4px;
 }
 
 .education-card__period {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   background: var(--surface-2);
   padding: 2px 6px;
@@ -1179,7 +1197,7 @@ body {
 }
 
 .education-card__desc {
-  font-size: 0.9rem;
+  font-size: var(--font-size-info);
   color: var(--ink-soft);
   line-height: 1.6;
   margin-top: 0.5rem;
@@ -1227,21 +1245,21 @@ body {
 
 .experience-card__title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: var(--font-size-h3);
   color: var(--ink);
   line-height: 1.2;
 }
 
 .experience-card__meta {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   margin-top: 4px;
 }
 
 .experience-card__period {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--rose);
   background: var(--rose-pale);
   padding: 4px 8px;
@@ -1250,7 +1268,7 @@ body {
 }
 
 .experience-card__desc {
-  font-size: 0.95rem;
+  font-size: var(--font-size-info);
   color: var(--ink-soft);
   line-height: 1.7;
   margin-bottom: 1rem;
@@ -1262,7 +1280,7 @@ body {
 }
 
 .experience-card__item {
-  font-size: 0.9rem;
+  font-size: var(--font-size-info);
   color: var(--muted);
   margin-bottom: 0.45rem;
   line-height: 1.6;
@@ -1306,7 +1324,7 @@ body {
   border: 0.5px solid var(--rose-light);
   border-radius: 99px;
   padding: 4px 10px;
-  font-size: 11px;
+  font-size: var(--font-size-info);
   font-family: var(--font-mono);
   color: var(--rose);
   margin-left: 15px;
@@ -1337,7 +1355,7 @@ body {
   border: none;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   display: inline-flex;
   align-items: center;
@@ -1366,7 +1384,7 @@ body {
   display: inline-flex;
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-info);
   letter-spacing: 0.04em;
   text-decoration: none;
   align-items: center;
@@ -1422,7 +1440,7 @@ body {
 
 .project-modal__eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--rose);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1430,7 +1448,7 @@ body {
 
 .project-modal__title {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: var(--font-size-h2);
   color: var(--ink);
   margin-top: 4px;
 }
@@ -1445,7 +1463,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: var(--font-size-body);
   color: var(--ink-soft);
   transition: all 0.2s;
 }
@@ -1475,13 +1493,13 @@ body {
 
 .project-modal__timeline-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
 }
 
 .project-modal__timeline-val {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--ink);
 }
 
@@ -1492,7 +1510,7 @@ body {
 
 .project-modal__tag {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--font-size-info);
   background: var(--surface);
   color: var(--rose);
   border: 0.5px solid var(--rose-light);
@@ -1506,13 +1524,13 @@ body {
 
 .project-modal__section-title {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: var(--font-size-h3);
   color: var(--ink);
   margin-bottom: 0.5rem;
 }
 
 .project-modal__text {
-  font-size: 0.95rem;
+  font-size: var(--font-size-info);
   color: var(--ink-soft);
   line-height: 1.7;
 }
@@ -1524,7 +1542,7 @@ body {
   padding: 1.25rem;
   overflow-x: auto;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-info);
   line-height: 1.6;
   border: 0.5px solid var(--border-med);
 }
@@ -1534,7 +1552,7 @@ body {
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.15);
   padding-bottom: 0.5rem;
   margin-bottom: 0.75rem;
-  font-size: 11px;
+  font-size: var(--font-size-info);
   text-transform: uppercase;
 }
 
@@ -1554,7 +1572,7 @@ body {
 }
 
 .project-modal__footer-note {
-  font-size: 11px;
+  font-size: var(--font-size-info);
   font-family: var(--font-mono);
   color: var(--muted);
 }
@@ -1569,7 +1587,7 @@ body {
   color: #fff;
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--font-size-info);
   padding: 0.6rem 1.25rem;
   border-radius: 4px;
   transition: background 0.2s;
@@ -1641,12 +1659,12 @@ body {
 
 .recruiter-portal__title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: var(--font-size-h3);
   color: var(--ink);
 }
 
 .recruiter-portal__desc {
-  font-size: 0.85rem;
+  font-size: var(--font-size-info);
   color: var(--muted);
   margin-top: 4px;
   line-height: 1.5;
@@ -1667,7 +1685,7 @@ body {
 
 .recruiter-portal__label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
 }
 
@@ -1676,14 +1694,14 @@ body {
   border-radius: 4px;
   border: 0.5px solid var(--border-med);
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--font-size-info);
   background: var(--surface);
   color: var(--ink);
 }
 
 .recruiter-portal__input--date {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: var(--font-size-info);
 }
 
 .recruiter-portal__actions {
@@ -1737,7 +1755,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--rose);
-  font-size: 1.2rem;
+  font-size: var(--font-size-h3);
   font-weight: bold;
   font-family: var(--font-display);
 }
@@ -1748,27 +1766,27 @@ body {
 
 .recruiter-portal__meta-name {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: var(--font-size-body);
   color: var(--ink);
   font-weight: 500;
 }
 
 .recruiter-portal__meta-subtitle {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   margin-top: 2px;
 }
 
 .recruiter-portal__date {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
 }
 
 .recruiter-portal__body {
   padding: 2.5rem 2.5rem 2rem;
-  font-size: 0.95rem;
+  font-size: var(--font-size-body);
   color: var(--ink-soft);
   line-height: 1.85;
 }
@@ -1803,22 +1821,22 @@ body {
 }
 
 .recruiter-portal__signature-name {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-family: var(--font-);
+  font-size: var(--font-size-body);
   font-style: italic;
   color: var(--ink);
 }
 
 .recruiter-portal__signature-title {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   margin-top: 4px;
 }
 
 .recruiter-portal__signature-location {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   text-align: right;
 }
@@ -1897,7 +1915,7 @@ body {
 .photo-frame__status-text {
   color: #faf9f7;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-info);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -1911,14 +1929,14 @@ body {
 
 .photo-frame__name {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: var(--font-size-body);
   color: var(--ink);
   font-weight: 500;
 }
 
 .photo-frame__sub {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--font-size-info);
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1927,7 +1945,7 @@ body {
 
 .photo-frame__active-badge {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--font-size-info);
   color: var(--rose);
   background: var(--rose-pale);
   padding: 4px 8px;

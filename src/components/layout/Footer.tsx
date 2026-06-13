@@ -1,22 +1,10 @@
 import type { MouseEvent } from "react";
 import Logo from "../../assets/logo.svg";
 
-type FooterProps = {
-  onOpenRecruiterPortal: () => void;
-};
-
-export default function Footer({ onOpenRecruiterPortal }: FooterProps) {
+export default function Footer() {
   const handleScrollToTop = (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleNavLinkClick = (id: string, e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const target = document.getElementById(id);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   return (
@@ -32,89 +20,29 @@ export default function Footer({ onOpenRecruiterPortal }: FooterProps) {
           >
             <img src={Logo} className="footer__logo-svg" alt="Rúben Alves Logo" />
           </a>
-          <p className="footer__description">
-            Software Engineer building high-performance systems and dynamic client applications.
-          </p>
         </div>
 
-        {/* Links Column 1: Navigation */}
-        <div className="footer__column">
-          <span className="footer__column-title">Navigation</span>
-          <ul className="footer__links">
-            <li>
-              <a
-                href="#about"
-                onClick={(e) => handleNavLinkClick("about", e)}
-                className="footer__link"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#experience"
-                onClick={(e) => handleNavLinkClick("experience", e)}
-                className="footer__link"
-              >
-                Experience
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                onClick={(e) => handleNavLinkClick("projects", e)}
-                className="footer__link"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#stack"
-                onClick={(e) => handleNavLinkClick("stack", e)}
-                className="footer__link"
-              >
-                Stack
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Links Column 2: Connect */}
-        <div className="footer__column">
-          <span className="footer__column-title">Connect</span>
-          <ul className="footer__links">
-            <li>
-              <a
-                href="https://github.com/rubenalves-dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer__link"
-              >
-                GitHub ↗
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linkedin.com/in/raiiaa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer__link"
-              >
-                LinkedIn ↗
-              </a>
-            </li>
-            <li>
-              <a href="mailto:hello@raiiaa.dev" className="footer__link">
-                Email ↗
-              </a>
-            </li>
-            <li>
-              <button onClick={onOpenRecruiterPortal} className="footer__button-link">
-                🔑 Recruiter Access
-              </button>
-            </li>
-          </ul>
+        {/* Social Links */}
+        <div className="footer__socials">
+          <a
+            href="https://github.com/rubenalves-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__link"
+          >
+            GitHub ↗
+          </a>
+          <a
+            href="https://linkedin.com/in/raiiaa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__link"
+          >
+            LinkedIn ↗
+          </a>
+          <a href="mailto:hello@raiiaa.dev" className="footer__link">
+            Email ↗
+          </a>
         </div>
       </div>
 
