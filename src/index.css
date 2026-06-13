@@ -254,6 +254,7 @@ body {
 .nav {
   position: fixed;
   top: 0;
+
   left: 0;
   right: 0;
   z-index: 100;
@@ -265,7 +266,7 @@ body {
   backdrop-filter: blur(12px);
   border-bottom: 0.5px solid hsl(var(--foreground) / 0.08);
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav {
     padding: 1rem 1.5rem;
   }
@@ -291,7 +292,7 @@ body {
   gap: 2.5rem;
   list-style: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav__links {
     display: none;
   }
@@ -317,11 +318,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 6rem 3.5rem;
+  padding: 8rem 3.5rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem;
     min-height: auto;
   }
 }
@@ -379,7 +380,7 @@ body {
   color: hsl(var(--muted));
   line-height: 1.75;
   max-width: 580px;
-  margin-bottom: 2.75rem;
+  margin-bottom: 2rem;
   text-align: left;
 }
 
@@ -387,7 +388,7 @@ body {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   border-top: 0.5px solid hsl(var(--foreground) / 0.08);
   border-bottom: 0.5px solid hsl(var(--foreground) / 0.08);
   padding: 1.5rem 0;
@@ -766,26 +767,38 @@ body {
   background: hsl(var(--secondary));
   color: hsl(var(--foreground) / 0.6);
   border-top: 0.5px solid hsl(var(--foreground) / 0.08);
-  padding: 4.5rem 3.5rem 2.5rem;
+  padding: 2.5rem 3.5rem;
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 3rem 1.5rem 2rem;
+    padding: 2rem 1.5rem;
   }
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3.5rem;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer__socials {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10%;
 }
 
 @media (max-width: 900px) {
   .footer__grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1rem;
+    justify-items: center;
+  }
+
+  .footer__socials {
+    justify-content: center;
   }
 }
 
@@ -797,7 +810,7 @@ body {
 }
 
 .footer__logo-svg {
-  width: 100px;
+  width: 200px;
   aspect-ratio: 2/1;
   object-fit: cover;
 }
@@ -1328,6 +1341,10 @@ body {
   font-family: var(--font-mono);
   color: var(--rose);
   margin-left: 15px;
+
+  @media (max-width: 512px) {
+    display: none;
+  }
 }
 
 .nav__status-dot {
