@@ -10,7 +10,7 @@ type ProjectData = {
   challenges: string;
   repo?: string;
   website?: string;
-  codeSnippet: {
+  codeSnippet?: {
     language: string;
     code: string;
   };
@@ -78,15 +78,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {/* Code Snippet */}
-          <div className="project-modal__section">
-            <h4 className="project-modal__section-title">Architecture Implementation Snippet</h4>
-            <div className="project-modal__code-block">
-              <div className="project-modal__code-header">{project.codeSnippet.language}</div>
-              <pre className="project-modal__code-pre">
-                <code className="project-modal__code">{project.codeSnippet.code}</code>
-              </pre>
+          {project.codeSnippet && (
+            <div className="project-modal__section">
+              <h4 className="project-modal__section-title">Architecture Implementation Snippet</h4>
+              <div className="project-modal__code-block">
+                <div className="project-modal__code-header">{project.codeSnippet.language}</div>
+                <pre className="project-modal__code-pre">
+                  <code className="project-modal__code">{project.codeSnippet.code}</code>
+                </pre>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Footer */}
