@@ -11,6 +11,7 @@ import Contact from "./components/contact/Contact";
 import Footer from "./components/layout/Footer";
 import ProjectModal from "./components/projects/ProjectModal";
 import CoverLetterPortal from "./components/recruiter/CoverLetterPortal";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function App() {
   // Modal & Portal States
@@ -76,6 +77,8 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
+      <Analytics />
+
       {/* Navbar */}
       <Navbar onOpenRecruiterPortal={() => setRecruiterPortalOpen(true)} />
 
