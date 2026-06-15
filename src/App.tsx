@@ -11,7 +11,7 @@ import Contact from "./components/contact/Contact";
 import Footer from "./components/layout/Footer";
 import ProjectModal from "./components/projects/ProjectModal";
 import CoverLetterPortal from "./components/recruiter/CoverLetterPortal";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   // Modal & Portal States
